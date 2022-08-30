@@ -1,0 +1,103 @@
+body {
+  background: radial-gradient(circle, #24246e, #06051f);
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.containerCard {
+  margin-top: 1vw;
+  margin-left: 1vw;
+  width: 20vw;
+  height: 27vw;
+  border-style: solid;
+  border-radius: 1vw;
+  background-color: #525252;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  margin: 1rem;
+  justify-content: center;
+  align-content: center;
+}
+.image {
+  margin-top: 1vw;
+  margin-left: 1vw;
+  width: 90%;
+  text-align: center;
+}
+h1 {
+  font-size: 1.5vw;
+  color: rgb(253, 253, 253);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+  background-color: #6d6d6d;
+  border-radius: 3px;
+  font-weight: bold;
+  align-items: center;
+  padding: 0.25rem 0.8rem;
+}
+
+.editor {
+  margin: 0;
+  margin-left: 0.8vw;
+  font-size: 1.4vw;
+  position: relative;
+  color: #eee;
+}
+
+.minutes {
+  margin: 0;
+  margin-left: 0.8vw;
+  font-size: 1vw;
+  color: #eee;
+  position: relative;
+}
+
+.genre {
+  margin: 0;
+  margin-left: 0.8vw;
+  font-size: 1vw;
+  color: #eee;
+  position: relative;
+}
+.btn {
+  margin-left: 2vw;
+  margin-top: 1vw;
+  appearance: none;
+  outline: 0;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: none;
+  letter-spacing: 3px;
+  line-height: 10px;
+  height: 2vw;
+  width: 80%;
+  padding: 0 30px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #292929;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+}
+.btn_text {
+  position: relative;
+  z-index: 2;
+}
+.btn:hover {
+  background-color: #262c48;
+}
