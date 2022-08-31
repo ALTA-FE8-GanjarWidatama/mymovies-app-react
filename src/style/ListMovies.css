@@ -1,19 +1,18 @@
 body {
   background: radial-gradient(circle, #24246e, #06051f);
-  overflow: hidden;
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .containerCard {
   margin-top: 1vw;
   margin-left: 1vw;
-  width: 20vw;
-  height: 27vw;
+  width: 25vw;
+  height: 45vw;
   border-style: solid;
   border-radius: 1vw;
-  background-color: #525252;
+  background-color: #161641;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   position: relative;
@@ -29,14 +28,14 @@ body {
 }
 h1 {
   font-size: 1.5vw;
-  color: rgb(253, 253, 253);
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem 1rem;
   letter-spacing: 0.5px;
-  background-color: #6d6d6d;
+  background-color: #2a286b;
   border-radius: 3px;
   font-weight: bold;
   align-items: center;
@@ -90,7 +89,7 @@ h1 {
   font-size: 15px;
   font-weight: 600;
   color: #fff;
-  background-color: #292929;
+  background-color: #24246e;
   border-radius: 5px;
   transition: all 0.3s ease-in;
 }
@@ -100,4 +99,12 @@ h1 {
 }
 .btn:hover {
   background-color: #262c48;
+}
+
+.mapes {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
 }
