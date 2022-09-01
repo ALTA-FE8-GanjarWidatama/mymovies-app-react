@@ -1,4 +1,4 @@
-/* .menu {
+.menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,11 +13,11 @@
   height: 50px;
   transition: background-position-x 0.9s linear;
   text-align: center;
+}
 
-  a {
-    font-size: 22px;
-    color: #777;
-    text-decoration: none;
-    transition: all 0.45s;
-  }
-} */
+a {
+  font-size: 22px;
+  color: #777;
+  text-decoration: none;
+  transition: all 0.45s;
+}

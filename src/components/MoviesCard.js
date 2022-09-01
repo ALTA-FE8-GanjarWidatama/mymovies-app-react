@@ -17,6 +17,9 @@ export default class MovieCard extends Component {
         <button className="btn" type="button">
           add favorite
         </button>
+        <button className="btn" type="button">
+          detail movie
+        </button>
       </div>
     );
   }

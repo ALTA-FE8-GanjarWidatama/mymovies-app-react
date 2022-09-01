@@ -23,8 +23,11 @@ body {
 .image {
   margin-top: 1vw;
   margin-left: 1vw;
-  width: 90%;
   text-align: center;
+  width: 90%;
+  height: 7 0%;
+  text-align: center;
+  border-radius: 1vw;
 }
 h1 {
   font-size: 1.5vw;
