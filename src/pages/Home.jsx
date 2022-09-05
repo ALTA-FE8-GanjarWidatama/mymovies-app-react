@@ -1,38 +1,38 @@
-import React, { Component } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import MovieCard from "../components/MoviesCard";
 import { withRouter } from "../withRouter";
 import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BASEIMAGE = "https://image.tmdb.org/t/p/original";
-class Home extends Component {
-  state = {
-    title: [],
-    page: 1,
-  };
+const Home = () => {
+  const navigate = useNavigate();
+  const [title, setTitle] = useState([]);
+  const [pages, setPages] = useState(1);
 
-  componentDidMount() {
-    this.getData();
-  }
+  useEffect(() => {
+    getData();
+  }, [pages]);
 
-  getData(page) {
-    const self = this;
+  const getData = async (pages) => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=6abe3c5cae209af53dc03ebaee318a77&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=6abe3c5cae209af53dc03ebaee318a77&language=en-US&page=${pages}`
       )
-      .then(function (response) {
-        console.log(response.data.results);
-        self.setState({
-          title: response.data.results,
-        });
+      .then((response) => {
+        setTitle(response.data.results);
       })
-      .catch(function (error) {
+
+      .catch((error) => {
         alert(error);
       });
-  }
-  handleDetailPage(item) {
-    this.props.navigate("/detail", {
+  };
+
+  const handleDetailPage = (item) => {
+    navigate(`/detail/${item.id}`, {
       state: {
         title: item.title,
         image: item.poster_path,
@@ -44,52 +44,44 @@ class Home extends Component {
         release_date: item.release_date,
       },
     });
-  }
-  previousPage() {
-    if (this.state.page > 1) {
-      this.setState({
-        page: this.state.page - 1,
-      });
+  };
+  const previousPage = () => {
+    if (pages > 1) {
+      setPages(pages - 1);
     }
-    this.getData(this.state.page);
-  }
+    getData(pages);
+  };
 
-  nextPage() {
-    this.setState({
-      page: this.state.page + 1,
-    });
-    this.getData(this.state.page);
-  }
+  const nextPage = () => {
+    setPages(pages + 1);
+    getData(pages);
+  };
 
-  render() {
-    return (
-      <>
-        <Navbar />
-        <div className="mapes">
-          {this.state.title.map((item, index) => {
-            return (
-              <div key={index}>
-                <MovieCard
-                  klik={() => this.handleDetailPage(item)}
-                  title={item.title}
-                  image={BASEIMAGE + item.poster_path}
-                  popularity={item.popularity}
-                  overview={item.overview}
-                  count={item.count}
-                />
-              </div>
-            );
-          })}
-        </div>
-        <div className="btn">
-          <button onClick={(value) => this.previousPage(value)}>
-            Previous
-          </button>
-          <button onClick={(value) => this.nextPage(value)}>Next</button>
-        </div>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Navbar />
+      <div className="mapes">
+        {title.map((item, index) => {
+          return (
+            <div key={index}>
+              <MovieCard
+                klik={() => handleDetailPage(item)}
+                title={item.title}
+                image={BASEIMAGE + item.poster_path}
+                popularity={item.popularity}
+                overview={item.overview}
+                count={item.count}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="btn">
+        <button onClick={(value) => previousPage(value)}>Previous</button>
+        <button onClick={(value) => nextPage(value)}>Next</button>
+      </div>
+    </>
+  );
+};
 
 export default withRouter(Home);
